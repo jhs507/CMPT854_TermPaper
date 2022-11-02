@@ -1,4 +1,5 @@
-from Contributor import Contributor
+from contributor import Contributor
+from contributor_database import ContributorDatabase
 from pydriller import Repository
 
 def main():
@@ -23,14 +24,16 @@ def main():
             contributor_dict[author_name].add_commit(commit)
 
 
-    i = 0
+    db = ContributorDatabase()
     for con in contributor_dict:
-        i = i + 1
-        print(
-            str(i)+
-            ": "+
-            str(contributor_dict[con])
-        )
+        db.add_contributor(contributor_dict[con])
+
+#    for con in db.list_of_contributors:
+#        print(str(con))
+
+    for commit in db.list_of_contributors[3].commits:
+        print(commit.author_date)
+
 
 if __name__ == "__main__":
     main()
