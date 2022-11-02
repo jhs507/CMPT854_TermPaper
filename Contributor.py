@@ -7,6 +7,13 @@ class Contributor(object):
         self.commits = []
         self.num_commits = 0
 
+    def __str__(self):
+        string = self.name
+        string += ", "
+        string += str(self.num_commits)
+        string += " commits"
+        return string
+
 
     def add_commit(self, commit):
         self.commits.append(commit)

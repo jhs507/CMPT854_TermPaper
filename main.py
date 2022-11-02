@@ -12,6 +12,7 @@ def main():
 
     contributor_dict = {}
 
+    # Build a dictionary of contributors
     for commit in repo.traverse_commits():
         author_name = commit.author.name
 
@@ -21,10 +22,15 @@ def main():
         else:
             contributor_dict[author_name].add_commit(commit)
 
+
     i = 0
     for con in contributor_dict:
         i = i + 1
-        print(str(i)+": "+contributor_dict[con].name+" made "+ str(contributor_dict[con].num_commits) +" commits")
+        print(
+            str(i)+
+            ": "+
+            str(contributor_dict[con])
+        )
 
 if __name__ == "__main__":
     main()
