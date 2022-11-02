@@ -35,4 +35,4 @@ class Contributor(object):
             if commit.author_date - first_commit_date < six_month_delta:
                 i = i + 1
 
-        print("Commits in first six months: "+ str(i))
+        return i

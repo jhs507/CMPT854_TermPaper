@@ -28,10 +28,10 @@ def main():
     for con in contributor_dict:
         db.add_contributor(contributor_dict[con])
 
-#    for con in db.list_of_contributors:
-#        print(str(con))
+    for con in db.list_of_contributors:
+        print(str(con)+" commits in first six months: "+str(con.first_six_months()))
 
-    db.list_of_contributors[3].first_six_months()
+#    db.list_of_contributors[3].first_six_months()
 
 
 if __name__ == "__main__":
