@@ -31,8 +31,7 @@ def main():
 #    for con in db.list_of_contributors:
 #        print(str(con))
 
-    for commit in db.list_of_contributors[3].commits:
-        print(commit.author_date)
+    db.list_of_contributors[3].first_six_months()
 
 
 if __name__ == "__main__":

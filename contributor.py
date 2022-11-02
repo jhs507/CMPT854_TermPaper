@@ -28,6 +28,11 @@ class Contributor(object):
 
     def first_six_months(self):
         first_commit_date = self.commits[0].author_date
+        six_month_delta = datetime.timedelta(days=180)
 
+        i = 0
         for commit in self.commits:
-            print("Delta: "+str(commit.author_date - first_commit_date))
+            if commit.author_date - first_commit_date < six_month_delta:
+                i = i + 1
+
+        print("Commits in first six months: "+ str(i))
