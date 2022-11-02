@@ -17,14 +17,14 @@ def main():
 
         if author_name not in contributor_dict:
             contributor_dict[author_name] = Contributor(author_name)
-            contributor_dict[author_name].commits.append(commit)
+            contributor_dict[author_name].add_commit(commit)
         else:
-            contributor_dict[author_name].commits.append(commit)
+            contributor_dict[author_name].add_commit(commit)
 
     i = 0
     for con in contributor_dict:
         i = i + 1
-        print(str(i)+": "+contributor_dict[con].name+" made "+ str(len(contributor_dict[con].commits)) +" commits")
+        print(str(i)+": "+contributor_dict[con].name+" made "+ str(contributor_dict[con].num_commits) +" commits")
 
 if __name__ == "__main__":
     main()

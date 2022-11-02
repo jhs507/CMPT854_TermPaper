@@ -5,3 +5,9 @@ class Contributor(object):
         super(Contributor, self).__init__()
         self.name = name
         self.commits = []
+        self.num_commits = 0
+
+
+    def add_commit(self, commit):
+        self.commits.append(commit)
+        self.num_commits = self.num_commits + 1
