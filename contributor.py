@@ -11,6 +11,7 @@ class Contributor(object):
     Methods:
     add_commit(commit) - Adds commit to the list of commits.
     first_six_months() - Returns number of commits contributor made in first six months
+    lines_in_six_months() - Returns number of lines contributor made in first six months
 
     Static Methods:
     compare(A, B) - Used to compare two contributors sorting on number of commits
@@ -68,3 +69,15 @@ class Contributor(object):
                 count = count + 1
 
         return count
+
+    def lines_in_six_months(self):
+        """Returns number of lines contributed in first six months of first commit."""
+        first_commit_date = self.commits[0].author_date
+        six_month_delta = datetime.timedelta(days=180)
+
+        line_count = 0
+        for commit in self.commits:
+            if commit.author_date - first_commit_date < six_month_delta:
+                line_count = line_count + commit.lines
+
+        return line_count

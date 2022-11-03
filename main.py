@@ -29,7 +29,7 @@ def main():
         db.add_contributor(contributor_dict[con])
 
     for con in db.list_of_contributors:
-        print(str(con)+" commits in first six months: "+str(con.first_six_months()))
+        print(str(con)+" lines in first six months: "+str(con.lines_in_six_months()))
 
 #    db.list_of_contributors[3].first_six_months()
 
