@@ -103,3 +103,24 @@ class Contributor(object):
                 y_list.append(y)
 
         return np.array(x_list), np.array(y_list)
+
+
+    def get_lines_plot_data(self):
+
+        x_list = []
+        y_list = []
+
+        first_commit_date = self.commits[0].author_date
+        six_month_delta = datetime.timedelta(days=180)
+
+        line_count = 0
+        for commit in self.commits:
+            if commit.author_date - first_commit_date < six_month_delta:
+                delta = commit.author_date - first_commit_date
+                x = delta.total_seconds()
+                line_count = line_count + commit.lines
+                y = line_count
+                x_list.append(x)
+                y_list.append(y)
+
+        return np.array(x_list), np.array(y_list)
