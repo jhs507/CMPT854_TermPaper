@@ -28,11 +28,35 @@ def main():
     for con in contributor_dict:
         db.add_contributor(contributor_dict[con])
 
-    for con in db.list_of_contributors:
-        print(str(con)+" lines in first six months: "+str(con.lines_in_six_months()))
+#    for con in db.list_of_contributors:
+#        print(str(con)+" lines in first six months: "+str(con.lines_in_six_months()))
 
 #    db.list_of_contributors[3].first_six_months()
 
+
+    #comms = db.list_of_contributors[3].commits
+    #first_date = comms[0].author_date
+    """
+    y = 0
+    for commit in comms:
+        delta = commit.author_date - first_date
+        x = delta.total_seconds()
+        y = y + 1
+        print(str(x)+", "+str(y))
+        """
+
+    x_arr, y_arr = db.list_of_contributors[3].get_commit_plot_data()
+    print(x_arr)
+    print(y_arr)
+
+    """
+    y = 0
+    for commit in comms:
+        delta = commit.author_date - first_date
+        x = delta.total_seconds()
+        y = y + commit.lines
+        print(str(x)+", "+str(y))
+    """
 
 if __name__ == "__main__":
     main()

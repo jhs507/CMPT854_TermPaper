@@ -1,4 +1,5 @@
 import datetime
+import numpy as np
 
 class Contributor(object):
     """Data object for a contributor to a repository.
@@ -81,3 +82,24 @@ class Contributor(object):
                 line_count = line_count + commit.lines
 
         return line_count
+
+
+    def get_commit_plot_data(self):
+
+        x_list = []
+        y_list = []
+
+        first_commit_date = self.commits[0].author_date
+        six_month_delta = datetime.timedelta(days=180)
+
+        commit_count = 0
+        for commit in self.commits:
+            if commit.author_date - first_commit_date < six_month_delta:
+                delta = commit.author_date - first_commit_date
+                x = delta.total_seconds()
+                commit_count = commit_count + 1
+                y = commit_count
+                x_list.append(x)
+                y_list.append(y)
+
+        return np.array(x_list), np.array(y_list)
