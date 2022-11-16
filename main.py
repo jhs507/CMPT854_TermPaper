@@ -18,7 +18,7 @@ def main():
         author_name = commit.author.name
 
         if author_name not in contributor_dict:
-            contributor_dict[author_name] = Contributor(author_name)
+            contributor_dict[author_name] = Contributor(author_name, "mines/abseil-cpp")
             contributor_dict[author_name].add_commit(commit)
         else:
             contributor_dict[author_name].add_commit(commit)
@@ -38,10 +38,13 @@ def main():
     #first_date = comms[0].author_date
 
 
-    x_arr, y_arr = db.list_of_contributors[3].get_lines_plot_data()
-    print(x_arr)
-    print(y_arr)
+#    x_arr, y_arr = db.list_of_contributors[3].get_lines_plot_data()
+#    print(x_arr)
+#    print(y_arr)
 
+    #Calculate lines of code at inital commit for a contributor
+    size = db.list_of_contributors[3].get_code_size_inital()
+    print(size)
 
 if __name__ == "__main__":
     main()

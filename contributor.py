@@ -1,11 +1,17 @@
 import datetime
 import numpy as np
+import subprocess
+import pandas as pd
+from pydriller import Git
+
+
 
 class Contributor(object):
     """Data object for a contributor to a repository.
 
     Fields:
     name - The name of the contributor.
+    repository_path - Path to the repository the contributor commited to.
     commits - List of commits made by the contributor.
     num_commits - Number of commits made by the contributor.
 
@@ -13,17 +19,22 @@ class Contributor(object):
     add_commit(commit) - Adds commit to the list of commits.
     first_six_months() - Returns number of commits contributor made in first six months
     lines_in_six_months() - Returns number of lines contributor made in first six months
+    get_code_size_inital() - Returns the number of lines in the code base for the contributor's first commit
 
     Static Methods:
     compare(A, B) - Used to compare two contributors sorting on number of commits
     """
 
 
-    def __init__(self, name):
+    def __init__(self, name, repository_path):
         super(Contributor, self).__init__()
         self.name = name
+        self.repository_path = repository_path
         self.commits = []
         self.num_commits = 0
+
+        self.lizard_analysis_data = None
+        self.lizard_analysis_status = False
 
 
     def __str__(self):
@@ -32,6 +43,53 @@ class Contributor(object):
         string += str(self.num_commits)
         string += " commits"
         return string
+
+
+    def lizard_analysis_clean(self):
+        if self.lizard_analysis_data is None:
+            self.lizard_analysis_status = False
+
+        return self.lizard_analysis_status
+
+
+    def perform_lizard_analysis(self):
+        #checkout the first contributed commit
+        git = Git(self.repository_path)
+        git.checkout(self.commits[0].hash)
+
+        outfile_name = 'lizard_stats/' + self.commits[0].hash
+
+        command = [
+            'lizard',
+            '--csv',
+            '-o',
+            outfile_name,
+            self.repository_path
+        ]
+
+        completed_process = subprocess.run(command)
+        if completed_process.returncode == 0:
+            pass
+        else:
+            print("Error running lizard on hash " + self.commits[0].hash)
+
+        headings = [
+            'NLOC',
+            'CCN',
+            'Token',
+            'Param',
+            'Length',
+            'Location',
+            'File',
+            'Function',
+            'Signature',
+            'Start_Line',
+            'End_Line'
+        ]
+
+        self.lizard_analysis_data = pd.read_csv(outfile_name, sep=',', header=0, names=headings)
+        self.lizard_analysis_status = True
+        git.reset()
 
 
     @staticmethod
@@ -57,6 +115,7 @@ class Contributor(object):
         """
         self.commits.append(commit)
         self.num_commits = self.num_commits + 1
+        self.lizard_analysis_status = False
 
 
     def first_six_months(self):
@@ -124,3 +183,11 @@ class Contributor(object):
                 y_list.append(y)
 
         return np.array(x_list), np.array(y_list)
+
+
+    def get_code_size_inital(self):
+        if not self.lizard_analysis_clean():
+            self.perform_lizard_analysis()
+
+        col_NLOC = self.lizard_analysis_data['NLOC']
+        return col_NLOC.sum()
