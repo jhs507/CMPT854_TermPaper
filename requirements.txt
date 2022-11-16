@@ -1,6 +1,8 @@
 gitdb==4.0.9
 GitPython==3.1.29
+Jinja2==3.1.2
 lizard==1.17.10
+MarkupSafe==2.1.1
 numpy==1.23.4
 pandas==1.5.1
 PyDriller==2.1
