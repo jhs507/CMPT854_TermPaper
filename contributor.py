@@ -16,6 +16,8 @@ class Contributor(object):
     repository_path - Path to the repository the contributor commited to.
     commits - List of commits made by the contributor.
     num_commits - Number of commits made by the contributor.
+    lizard_analysis_data - A python dataframe that holds the data from the first commit this contributor made
+    lizard_analysis_status - True if the lizard_analysis_data is up to date false otherwise.
 
     Methods:
     add_commit(commit) - Adds commit to the list of commits.
@@ -48,6 +50,7 @@ class Contributor(object):
 
 
     def lizard_analysis_clean(self):
+        """Returns true if the lizard_stats do not need to be recalcualted"""
         if self.lizard_analysis_data is None:
             self.lizard_analysis_status = False
 
@@ -55,7 +58,7 @@ class Contributor(object):
 
 
     def perform_lizard_analysis(self):
-        #checkout the first contributed commit
+        """Calcualtes the lizard_analysis_data for the first commit made by this contributor"""
         git = Git(self.repository_path)
         git.checkout(self.commits[0].hash)
 
@@ -147,7 +150,7 @@ class Contributor(object):
 
 
     def get_commit_plot_data(self):
-
+        """Returns two np arrays representing the data points for the commits made in the first six months."""
         x_list = []
         y_list = []
 
@@ -168,7 +171,7 @@ class Contributor(object):
 
 
     def get_lines_plot_data(self):
-
+        """Returns two np arrays representing the data points for the lines contributed in the first six months"""
         x_list = []
         y_list = []
 
@@ -189,8 +192,30 @@ class Contributor(object):
 
 
     def get_code_size_inital(self):
+        """Returns the cumulatave lines of code for the functions of the program at the frist commit from this contributor."""
         if not self.lizard_analysis_clean():
             self.perform_lizard_analysis()
 
         col_NLOC = self.lizard_analysis_data['NLOC']
         return col_NLOC.sum()
+
+
+    def get_code_complex_avg_inital(self):
+        """Returns the average cyclomatic complexity of the funcitons of the program at the first commit from this contributor."""
+        if not self.lizard_analysis_clean():
+            self.perform_lizard_analysis()
+
+        col_CCN = self.lizard_analysis_data['CCN']
+        return col_CCN.mean()
+
+
+    def get_code_file_num_inital(self):
+        """Returns the number of code bearing files in the code base at the inital commit by this contributor"""
+        if not self.lizard_analysis_clean():
+            self.perform_lizard_analysis()
+
+        col_file = self.lizard_analysis_data['File']
+        unique = col_file.unique()
+
+        print(unique)
+        return unique.size

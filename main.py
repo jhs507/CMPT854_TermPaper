@@ -44,7 +44,13 @@ def main():
 
     #Calculate lines of code at inital commit for a contributor
     size = db.list_of_contributors[3].get_code_size_inital()
-    print(size)
+    print("Inital loc: " + str(size))
+
+    complex = db.list_of_contributors[3].get_code_complex_avg_inital()
+    print("Inital Complex: " + str(complex))
+
+    files = db.list_of_contributors[3].get_code_file_num_inital()
+    print("Inital file count: " + str(files))
 
 if __name__ == "__main__":
     main()
