@@ -2,6 +2,8 @@ import datetime
 import numpy as np
 import subprocess
 import pandas as pd
+
+from os.path import exists
 from pydriller import Git
 
 
@@ -59,19 +61,20 @@ class Contributor(object):
 
         outfile_name = 'lizard_stats/' + self.commits[0].hash
 
-        command = [
-            'lizard',
-            '--csv',
-            '-o',
-            outfile_name,
-            self.repository_path
-        ]
+        if not exists(outfile_name):
+            command = [
+                'lizard',
+                '--csv',
+                '-o',
+                outfile_name,
+                self.repository_path
+            ]
+            completed_process = subprocess.run(command)
+            if completed_process.returncode == 0:
+                pass
+            else:
+                print("Error running lizard on hash " + self.commits[0].hash)
 
-        completed_process = subprocess.run(command)
-        if completed_process.returncode == 0:
-            pass
-        else:
-            print("Error running lizard on hash " + self.commits[0].hash)
 
         headings = [
             'NLOC',
