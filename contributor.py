@@ -4,6 +4,7 @@ import subprocess
 import pandas as pd
 
 from os.path import exists
+from os import makedirs
 from pydriller import Git
 
 
@@ -59,12 +60,15 @@ class Contributor(object):
 
     def perform_lizard_analysis(self):
         """Calcualtes the lizard_analysis_data for the first commit made by this contributor"""
-        git = Git(self.repository_path)
-        git.checkout(self.commits[0].hash)
+        directory_name = 'lizard_stats/'+ self.repository_path + "/"
+        outfile_name = 'lizard_stats/'+ self.repository_path + "/" + self.commits[0].hash
 
-        outfile_name = 'lizard_stats/' + self.commits[0].hash
+        if not exists(directory_name):
+            makedirs(directory_name)
 
         if not exists(outfile_name):
+            git = Git(self.repository_path)
+            git.checkout(self.commits[0].hash)
             command = [
                 'lizard',
                 '--csv',
@@ -77,7 +81,7 @@ class Contributor(object):
                 pass
             else:
                 print("Error running lizard on hash " + self.commits[0].hash)
-
+            git.reset()
 
         headings = [
             'NLOC',
@@ -95,7 +99,6 @@ class Contributor(object):
 
         self.lizard_analysis_data = pd.read_csv(outfile_name, sep=',', header=0, names=headings)
         self.lizard_analysis_status = True
-        git.reset()
 
 
     @staticmethod
