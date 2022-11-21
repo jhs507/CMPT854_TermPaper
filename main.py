@@ -52,5 +52,8 @@ def main():
     files = db.list_of_contributors[3].get_code_file_num_inital()
     print("Inital file count: " + str(files))
 
+    complex_func = db.list_of_contributors[3].get_code_num_complex_functions_inital()
+    print(complex_func)
+
 if __name__ == "__main__":
     main()

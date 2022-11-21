@@ -220,5 +220,14 @@ class Contributor(object):
         col_file = self.lizard_analysis_data['File']
         unique = col_file.unique()
 
-        print(unique)
         return unique.size
+
+
+    def get_code_num_complex_functions_inital(self):
+        """Retruns the number of functions in the code base with a complexity greater than 10"""
+        if not self.lizard_analysis_clean():
+            self.perform_lizard_analysis()
+
+        df = self.lizard_analysis_data
+        col_CCN = df[df['CCN'] > 10]['CCN']
+        return col_CCN.size
