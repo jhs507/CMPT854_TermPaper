@@ -1,3 +1,4 @@
+import datetime
 from contributor import Contributor
 from contributor_database import ContributorDatabase
 from pydriller import Repository
@@ -12,9 +13,14 @@ def main():
     )
 
     contributor_dict = {}
+    total_commit_count = 0
+    first_commit_date = None
 
     # Build a dictionary of contributors
     for commit in repo.traverse_commits():
+        if first_commit_date is None:
+            first_commit_date = commit.author_date
+
         author_name = commit.author.name
 
         if author_name not in contributor_dict:
@@ -23,37 +29,44 @@ def main():
         else:
             contributor_dict[author_name].add_commit(commit)
 
+        total_commit_count += 1
 
-    db = ContributorDatabase()
+    cdb = ContributorDatabase()
     for con in contributor_dict:
-        db.add_contributor(contributor_dict[con])
-
-#    for con in db.list_of_contributors:
-#        print(str(con)+" lines in first six months: "+str(con.lines_in_six_months()))
-
-#    db.list_of_contributors[3].first_six_months()
+        cdb.add_contributor(contributor_dict[con])
 
 
-    #comms = db.list_of_contributors[3].commits
-    #first_date = comms[0].author_date
+    print("Total Commits: "+str(total_commit_count))
+
+    core_threashold = total_commit_count * 0.8
+    commit_count = 0
+    core_contributor_database = ContributorDatabase()
+    for contributor in cdb.list_of_contributors:
+        commit_count = commit_count + contributor.num_commits
+        core_contributor_database.add_contributor(contributor)
+
+        if commit_count >= core_threashold:
+            break
+
+    print("\nCore Contributor List:")
+    for contributor in core_contributor_database.list_of_contributors:
+        print(contributor.name +" "+ str(contributor.num_commits) + " commits.")
 
 
-#    x_arr, y_arr = db.list_of_contributors[3].get_lines_plot_data()
-#    print(x_arr)
-#    print(y_arr)
+    two_year_delta = datetime.timedelta(days=730)
+    on_boarded_contributor_database = ContributorDatabase()
+    for contributor in core_contributor_database.list_of_contributors:
+        start_date = contributor.commits[0].author_date
 
-    #Calculate lines of code at inital commit for a contributor
-    size = db.list_of_contributors[3].get_code_size_inital()
-    print("Inital loc: " + str(size))
+        if start_date - first_commit_date >= two_year_delta:
+            on_boarded_contributor_database.add_contributor(contributor)
 
-    complex = db.list_of_contributors[3].get_code_complex_avg_inital()
-    print("Inital Complex: " + str(complex))
 
-    files = db.list_of_contributors[3].get_code_file_num_inital()
-    print("Inital file count: " + str(files))
+    print("\nOn-boarded Contributor List:")
+    for contributor in on_boarded_contributor_database.list_of_contributors:
+        print(contributor.name +" "+ str(contributor.num_commits) + " commits.")
 
-    complex_func = db.list_of_contributors[3].get_code_num_complex_functions_inital()
-    print(complex_func)
+
 
 if __name__ == "__main__":
     main()
