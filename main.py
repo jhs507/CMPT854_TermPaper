@@ -5,9 +5,11 @@ from pydriller import Repository
 
 def main():
 
+    repository_path = "mines/abseil-cpp"
+
     #Define the Repository to mine from
     repo = Repository(
-    "mines/abseil-cpp",
+    repository_path,
     only_in_branch='master',
     only_no_merge=True
     )
@@ -24,7 +26,7 @@ def main():
         author_name = commit.author.name
 
         if author_name not in contributor_dict:
-            contributor_dict[author_name] = Contributor(author_name, "mines/abseil-cpp")
+            contributor_dict[author_name] = Contributor(author_name, repository_path)
             contributor_dict[author_name].add_commit(commit)
         else:
             contributor_dict[author_name].add_commit(commit)
@@ -38,7 +40,7 @@ def main():
 
     print("Total Commits: "+str(total_commit_count))
 
-    core_threashold = total_commit_count * 0.8
+    core_threashold = total_commit_count * 0.80
     commit_count = 0
     core_contributor_database = ContributorDatabase()
     for contributor in cdb.list_of_contributors:
@@ -64,7 +66,13 @@ def main():
 
     print("\nOn-boarded Contributor List:")
     for contributor in on_boarded_contributor_database.list_of_contributors:
-        print(contributor.name +" "+ str(contributor.num_commits) + " commits.")
+        print(contributor.name +
+        " "+
+        str(contributor.first_six_months()) +
+        " commits. "+
+        str(contributor.lines_in_six_months())+
+        " lines."
+        )
 
 
 
