@@ -249,6 +249,13 @@ class Contributor(object):
 
         return unique.size
 
+    def get_code_num_functions_inital(self):
+        if not self.lizard_analysis_clean():
+            self.perform_lizard_analysis()
+
+        df = self.lizard_analysis_data
+        col_CCN = df['CCN']
+        return col_CCN.size
 
     def get_code_num_complex_functions_inital(self):
         """Retruns the number of functions in the code base with a complexity greater than 10"""
