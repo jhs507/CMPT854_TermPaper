@@ -202,6 +202,33 @@ class Contributor(object):
         col_NLOC = self.lizard_analysis_data['NLOC']
         return col_NLOC.sum()
 
+    def get_code_size_cloc(self):
+        git = Git(self.repository_path)
+        git.checkout(self.commits[0].hash)
+
+        cloc_command = [
+            "cloc",
+            "--quiet",
+            "--csv",
+            self.repository_path,
+
+        ]
+        completed_process = subprocess.run(cloc_command, capture_output=True)
+
+        tail_command = [
+            "tail",
+            "-n",
+            "1"
+        ]
+        completed_process = subprocess.run(tail_command, input=completed_process.stdout, capture_output=True)
+        output_line = completed_process.stdout.decode("utf-8")
+
+        split_output = output_line.split(",")
+        count = int(split_output[4])
+
+        git.reset()
+
+        return count
 
     def get_code_complex_avg_inital(self):
         """Returns the average cyclomatic complexity of the funcitons of the program at the first commit from this contributor."""
