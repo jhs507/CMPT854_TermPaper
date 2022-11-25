@@ -107,19 +107,27 @@ def fillPickelJar(on_boarded_contributors, project_code):
         pickle.dump(jar, file)
         file.close()
 
+def perform_analysis(repository_path, branch, project_name, project_code):
+    on_boarded_contributors = find_onboarded_contributors_list(repository_path, branch, project_name)
+    fillPickelJar(on_boarded_contributors, project_code)
+    print_formatted_output(on_boarded_contributors, project_code, ",", sys.stdout)
+
 def main():
 
-    repository_path = "mines/abseil-cpp"
-    project_name = "abseil/abseil-cpp"
-    branch = "master"
+    print("Project Name,Contributor Name,Contributor Code,Initial Commit Hash,Commits in first six months,lines of code in first six months,Initial lines of code,Inital Comment Lines of Code,Initial average CCN,Number of Functions,Number of functions with CCN > 10,Comment Ratio,Modularity Level,Documentation Level,Presence of Install Guide,Presence of Build Guide,Presence of Getting Started Guide")
 
+    tuples = [
+        ("mines/abseil-cpp", "master", "abseil/abseil-cpp")
+    ]
 
-    on_boarded_contributors = find_onboarded_contributors_list(repository_path, branch, project_name)
-    fillPickelJar(on_boarded_contributors, "P1")
-    print_formatted_output(on_boarded_contributors, "P1", ",", sys.stdout)
-
-
-
+    i = 0
+    for tuple in tuples:
+        i = i + 1
+        repository_path = tuple[0]
+        branch = tuple[1]
+        project_name = tuple[2]
+        project_code = "P" + str(i)
+        perform_analysis(repository_path, branch, project_name, project_code)
 
 
 if __name__ == "__main__":
