@@ -31,10 +31,11 @@ class Contributor(object):
     """
 
 
-    def __init__(self, name, repository_path):
+    def __init__(self, name, repository_path, project_name):
         super(Contributor, self).__init__()
         self.name = name
         self.repository_path = repository_path
+        self.project_name = project_name
         self.commits = []
         self.num_commits = 0
 
@@ -265,3 +266,6 @@ class Contributor(object):
         df = self.lizard_analysis_data
         col_CCN = df[df['CCN'] > 10]['CCN']
         return col_CCN.size
+
+    def get_inital_commit_hash(self):
+        return self.commits[0].hash
