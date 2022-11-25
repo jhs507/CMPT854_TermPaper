@@ -85,7 +85,7 @@ def print_formatted_output(on_boarded_contributors, project_code, sep, outfile):
         print(inital_average_CCN, end=sep, file=outfile)
         print(number_of_functions, end=sep, file=outfile)
         print(number_of_complex_functions, end=sep, file=outfile)
-        print(comment_ratio, end="\n", file=outfile)
+        print(comment_ratio, end="\n", file=outfile, flush=True)
 
 
 def fillPickelJar(on_boarded_contributors, project_code):
