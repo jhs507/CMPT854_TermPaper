@@ -124,14 +124,14 @@ def main():
         ("mines/snorkel","main","snorkel-team/snorkel"),
         ("mines/devito","master","devitocodes/devito"),
         ("mines/sqltoolsservice","main","microsoft/sqltoolsservice"),
-        ("mines/openhab-docs","main","openhab/openhab-docs")
+        ("mines/openhab-docs","main","openhab/openhab-docs"),
         ("mines/botbuilder-samples","main","microsoft/botbuilder-samples"),
         ("mines/decrediton","master","decred/decrediton"),
         ("mines/oneflow","master","oneflow-inc/oneflow"),
         ("mines/picocli","main","remkop/picocli"),
         ("mines/service-ui","master","reportportal/service-ui"),
         ("mines/dde-dock","master","linuxdeepin/dde-dock"),
-        ("mines/mythril","develop","consensys/mythril"),    ]
+        ("mines/mythril","develop","consensys/mythril"),
         ("mines/kimai2","master","kevinpapst/kimai2"),
         ("mines/ovn-kubernetes","master","ovn-org/ovn-kubernetes"),
         ("mines/tasks","master","nextcloud/tasks"),
