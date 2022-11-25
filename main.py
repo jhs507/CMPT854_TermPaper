@@ -117,7 +117,7 @@ def main():
     print("Project Name,Contributor Name,Contributor Code,Initial Commit Hash,Commits in first six months,lines of code in first six months,Initial lines of code,Inital Comment Lines of Code,Initial average CCN,Number of Functions,Number of functions with CCN > 10,Comment Ratio,Modularity Level,Documentation Level,Presence of Install Guide,Presence of Build Guide,Presence of Getting Started Guide")
 
     tuples = [
-        ("mines/rock-kernel-driver","master","radeonopencompute/rock-kernel-driver"),
+        #("mines/rock-kernel-driver","master","radeonopencompute/rock-kernel-driver"),
         ("mines/alios-things","master","alibaba/alios-things"),
         #("mines/vk-gl-cts","main","khronosgroup/vk-gl-cts"),
         ("mines/caseflow","master","department-of-veterans-affairs/caseflow"),
