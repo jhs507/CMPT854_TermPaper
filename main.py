@@ -1,5 +1,6 @@
 import datetime
 import sys
+import pickle
 from contributor import Contributor
 from contributor_database import ContributorDatabase
 from pydriller import Repository
@@ -87,6 +88,25 @@ def print_formatted_output(on_boarded_contributors, project_code, sep, outfile):
         print(comment_ratio, end="\n", file=outfile)
 
 
+def fillPickelJar(on_boarded_contributors, project_code):
+    i = 0
+    for contributor in on_boarded_contributors:
+        i = i + 1
+        contributor_code = project_code + "C" + str(i)
+        commit_data = contributor.get_commit_plot_data()
+        lines_data  = contributor.get_lines_plot_data()
+
+        jar_label = "pickle_jar/"+contributor_code + ".pkl"
+        jar = {
+            "contributor_code": contributor_code,
+            "commit_data": commit_data,
+            "lines_data": lines_data
+        }
+
+        file = open(jar_label, "wb")
+        pickle.dump(jar, file)
+        file.close()
+
 def main():
 
     repository_path = "mines/abseil-cpp"
@@ -94,8 +114,9 @@ def main():
     branch = "master"
 
 
-    onboarded_contributors = find_onboarded_contributors_list(repository_path, branch, project_name)
-    print_formatted_output(onboarded_contributors, "P1", ",", sys.stdout)
+    on_boarded_contributors = find_onboarded_contributors_list(repository_path, branch, project_name)
+    fillPickelJar(on_boarded_contributors, "P1")
+    print_formatted_output(on_boarded_contributors, "P1", ",", sys.stdout)
 
 
 
