@@ -224,11 +224,11 @@ class Contributor(object):
         output_line = completed_process.stdout.decode("utf-8")
 
         split_output = output_line.split(",")
-        count = int(split_output[4])
-
+        code_count = int(split_output[4])
+        comment_count = int(split_output[3])
         git.reset()
 
-        return count
+        return code_count, comment_count
 
     def get_code_complex_avg_inital(self):
         """Returns the average cyclomatic complexity of the funcitons of the program at the first commit from this contributor."""
