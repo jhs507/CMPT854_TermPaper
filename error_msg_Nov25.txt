@@ -1,0 +1,31 @@
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/vendor/assets/javascripts/pdf.worker.js'
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+Error: Fail to read source file 'mines/caseflow/app/assets/javascripts/pdf.worker.js'
+[skip] fail to process 'mines/caseflow/client/flow-typed/npm/lodash_v4.x.x.js' with RecursionError - maximum recursion depth exceeded while calling a Python object
+[skip] fail to process 'mines/appdaemon/appdaemon/assets/javascript/plotly.min.js' with RecursionError - maximum recursion depth exceeded
+[skip] fail to process 'mines/appdaemon/appdaemon/assets/javascript/plotly.min.js' with RecursionError - maximum recursion depth exceeded
+[skip] fail to process 'mines/appdaemon/appdaemon/assets/javascript/plotly.min.js' with RecursionError - maximum recursion depth exceeded
+[skip] fail to process 'mines/appdaemon/appdaemon/assets/javascript/plotly.min.js' with RecursionError - maximum recursion depth exceeded
