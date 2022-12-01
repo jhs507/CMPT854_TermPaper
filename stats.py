@@ -17,11 +17,8 @@ def normality_test(data, label, alpha):
         print("p-value: "+ str(pvalue))
         print("Data is from a normal distribution.\n")
 
-def main():
-    alpha = 1e-3
 
-    df = pd.read_csv("ExportedDataNov30.csv", sep=",", header=0)
-
+def run_normality_tests(df, alpha):
     normality_test(
         df["Commits Six Months"],
         "Commits made in fist six months",
@@ -94,7 +91,16 @@ def main():
         alpha
     )
 
-    
+
+def main():
+    alpha = 0.05
+
+    df = pd.read_csv("ExportedDataNov30.csv", sep=",", header=0)
+
+    run_normality_tests(df, alpha)
+
+
+
 
 if __name__ == "__main__":
     main()
