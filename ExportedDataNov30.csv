@@ -1,4 +1,4 @@
-Project Name,Contributor Name,Contributor Code,Initial Commit Hash,Commits Six Months,Lines Six Months,Initial lines,Inital Comments,Initial Average CCN,Functions,Complex Functions,Comment Ratio,Modularity Level,Documentation Level, Install,Tutorial
+Project Name,Contributor Name,Contributor Code,Initial Commit Hash,Commits Six Months,Lines Six Months,Initial lines,Inital Comments,Initial Average CCN,Functions,Complex Functions,Comment Ratio,Modularity Level,Documentation Level,Install,Tutorial
 zostera/django-bootstrap4,Allen  Timothy,P1C2,7acc584b1967d394592d9826c721cf5d1f7e9cb2,12,393,2817,1007,2.121387283,173,3,0.26333682,2,3,1,1
 zostera/django-bootstrap4,Jared Proffitt,P1C3,499870b8b47d8fab0d984a710ab396c0282397ab,8,110,2843,1003,2.022346369,179,3,0.260790432,2,3,1,1
 zostera/django-bootstrap4,Jonas Haag,P1C4,458f47facf0c16be19e0c85f3ad42b43087f8d73,7,46,2732,952,2.093167702,161,2,0.258414767,2,3,1,1
