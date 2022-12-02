@@ -440,23 +440,62 @@ def main():
     df["Function Complexity Ratio"] = df["Complex Functions"] / df["Functions"]
     #df["Log Function Complexity Ratio"] = np.log(df["Function Complexity Ratio"])
 
-    run_normality_tests(df, alpha)
+    #run_normality_tests(df, alpha)
 
-    run_corrolation_tests(df, alpha)
+    #run_corrolation_tests(df, alpha)
 
-    #df_doc_1 = df[df["Documentation Level"] == 1]
-    #df_doc_2 = df[df["Documentation Level"] == 2]
-    #df_doc_3 = df[df["Documentation Level"] == 3]
+    df_doc_1 = df[df["Documentation Level"] == 1]
+    df_doc_2 = df[df["Documentation Level"] == 2]
+    df_doc_3 = df[df["Documentation Level"] == 3]
 
-    #comm_doc_1 = df_doc_1["Commits Six Months"]
-    #comm_doc_2 = df_doc_2["Commits Six Months"]
-    #comm_doc_3 = df_doc_3["Commits Six Months"]
+    comm_doc_1 = df_doc_1["Commits Six Months"]
+    comm_doc_2 = df_doc_2["Commits Six Months"]
+    comm_doc_3 = df_doc_3["Commits Six Months"]
 
-    #s, p = stats.mannwhitneyu(comm_doc_3, comm_doc_2)
+    lines_doc_2 = df_doc_2["Lines Six Months"]
+    lines_doc_3 = df_doc_3["Lines Six Months"]
 
-    #print(s)
-    #print(p)
+    log_lines_doc_2 = df_doc_2["Log Lines Six Months"]
+    log_lines_doc_3 = df_doc_3["Log Lines Six Months"]
 
+    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
+
+
+    print("mannwhitneyu for commits by Documentation level")
+    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
+    print(s)
+    print(p)
+
+    median_2 = comm_doc_2.median()
+    median_3 = comm_doc_3.median()
+
+    print(median_2)
+    print(median_3)
+
+    #print(comm_doc_2)
+    #print(comm_doc_3)
+
+    print("mannwhitneyu for lines by Documentation level")
+    s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3)
+    print(s)
+    print(p)
+
+    median_2 = lines_doc_2.mean()
+    median_3 = lines_doc_3.mean()
+
+    print(median_2)
+    print(median_3)
+
+    print("mannwhitneyu for log lines by Documentation level")
+    s, p = stats.mannwhitneyu(log_lines_doc_2, log_lines_doc_3)
+    print(s)
+    print(p)
+
+    median_2 = log_lines_doc_2.median()
+    median_3 = log_lines_doc_3.median()
+
+    print(median_2)
+    print(median_3)
 
 
 
