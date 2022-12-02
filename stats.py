@@ -28,7 +28,7 @@ def pearson_test(data_a, data_b, label, alpha):
         print("Null hypothesis can be rejected.")
         print("p-value: "+ str(p_value))
 
-        print(correlation)
+        #print(correlation)
         cor_abs = abs(correlation)
         if cor_abs > 0.0 and cor_abs < 0.30:
             print("Little if any correlation "+ str(correlation)+"\n")
@@ -53,7 +53,7 @@ def spearman_test(data_a, data_b, label, alpha):
         print("Null hypothesis can be rejected.")
         print("p-value: "+ str(p_value))
 
-        print(correlation)
+        #print(correlation)
         cor_abs = abs(correlation)
         if cor_abs > 0.0 and cor_abs < 0.30:
             print("Little if any correlation "+ str(correlation)+"\n")
@@ -156,7 +156,7 @@ def run_normality_tests(df, alpha):
     )
 
     normality_test(
-        df["Log Initial lines"],
+        df["Log Inital lines"],
         "Log of Inital Lines",
         alpha
     )
@@ -185,12 +185,34 @@ def run_normality_tests(df, alpha):
         alpha
     )
 
+    normality_test(
+        df["Function Complexity Ratio"],
+        "Function Complexity Ratio",
+        alpha
+    )
+
+
+
 def run_corrolation_tests(df, alpha):
 
     spearman_test(
         df["Commits Six Months"],
         df["Lines Six Months"],
         "Commits in six months and Lines in six months",
+        alpha
+    )
+
+    spearman_test(
+        df["Lines Six Months"],
+        df["Commits Six Months"],
+        "Lines in six months and Commits in six months",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Commits Six Months"],
+        df["Log Lines Six Months"],
+        "Log Commits in six months and Log lines in six months",
         alpha
     )
 
@@ -278,6 +300,130 @@ def run_corrolation_tests(df, alpha):
         alpha
     )
 
+    spearman_test(
+        df["Log Commits Six Months"],
+        df["Log Inital lines"],
+        "Log Commits in six months and Log Inital lines",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Commits Six Months"],
+        df["Log Inital Comments"],
+        "Log Commits in six months and Log Inital Comments",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Commits Six Months"],
+        df["Log Initial Average CCN"],
+        "Log Commits in six months and Log Initial Average CCN",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Commits Six Months"],
+        df["Log Functions"],
+        "Log Commits in six months and Log Functions",
+        alpha
+    )
+
+    #spearman_test(
+    #    df["Log Commits Six Months"],
+    #    df["Log Complex Functions"],
+    #    "Log Commits in six months and Log Complex Functions",
+    #    alpha
+    #)
+
+    spearman_test(
+        df["Log Commits Six Months"],
+        df["Log Comment Ratio"],
+        "Log Commits in six months and Log Complex Functions",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Lines Six Months"],
+        df["Log Inital lines"],
+        "Log Lines Six Months and Log Inital lines",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Lines Six Months"],
+        df["Log Inital Comments"],
+        "Log Lines Six Months and Log Inital Comments",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Lines Six Months"],
+        df["Log Initial Average CCN"],
+        "Log Lines Six Months and Log Initial Average CCN",
+        alpha
+    )
+
+    spearman_test(
+        df["Log Lines Six Months"],
+        df["Log Functions"],
+        "Log Lines Six Months and Log Functions",
+        alpha
+    )
+
+    #spearman_test(
+    #    df["Log Lines Six Months"],
+    #    df["Log Complex Functions"],
+    #    "Log Lines Six Months and Log Complex Functions",
+    #    alpha
+    #)
+
+    spearman_test(
+        df["Log Lines Six Months"],
+        df["Log Comment Ratio"],
+        "Log Lines Six Months and Log Complex Functions",
+        alpha
+    )
+
+    spearman_test(
+        df["Commits Six Months"],
+        df["Function Complexity Ratio"],
+        "Commits in six months to Function Complixity Ratio",
+        alpha
+    )
+
+    spearman_test(
+        df["Lines Six Months"],
+        df["Function Complexity Ratio"],
+        "Lines in six months to complexity ratio",
+        alpha
+    )
+
+
+
+
+    print("Running Pearson Tests for normal data.")
+
+    pearson_test(
+        df["Log Lines Six Months"],
+        df["Log Inital Comments"],
+        "Log Lines six months and Log Inital Comments",
+        alpha
+    )
+
+    pearson_test(
+        df["Log Lines Six Months"],
+        df["Log Initial Average CCN"],
+        "Log Lines six months and Log IInitial Average CCN",
+        alpha
+    )
+
+    pearson_test(
+        df["Log Lines Six Months"],
+        df["Log Functions"],
+        "Log Lines six months and Log Functions",
+        alpha
+    )
+
 
 def main():
     alpha = 0.05
@@ -285,16 +431,18 @@ def main():
     df = pd.read_csv("ExportedDataNov30.csv", sep=",", header=0)
     df["Log Commits Six Months"] = np.log(df["Commits Six Months"])
     df["Log Lines Six Months"] = np.log(df["Lines Six Months"])
-    df["Log Initial lines"] = np.log(df["Initial lines"])
+    df["Log Inital lines"] = np.log(df["Initial lines"])
     df["Log Inital Comments"] = np.log(df["Inital Comments"])
     df["Log Initial Average CCN"] = np.log(df["Initial Average CCN"])
     df["Log Functions"] = np.log(df["Functions"])
     #df["Log Complex Functions"] = np.log(df["Complex Functions"])
     df["Log Comment Ratio"] = np.log(df["Comment Ratio"])
+    df["Function Complexity Ratio"] = df["Complex Functions"] / df["Functions"]
+    #df["Log Function Complexity Ratio"] = np.log(df["Function Complexity Ratio"])
 
     run_normality_tests(df, alpha)
 
-    #run_corrolation_tests(df, alpha)
+    run_corrolation_tests(df, alpha)
 
     #df_doc_1 = df[df["Documentation Level"] == 1]
     #df_doc_2 = df[df["Documentation Level"] == 2]
