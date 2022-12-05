@@ -444,63 +444,177 @@ def main():
 
     #run_corrolation_tests(df, alpha)
 
+    print("Testing affect of Documentation level")
     df_doc_1 = df[df["Documentation Level"] == 1]
     df_doc_2 = df[df["Documentation Level"] == 2]
     df_doc_3 = df[df["Documentation Level"] == 3]
 
-    comm_doc_1 = df_doc_1["Commits Six Months"]
+    print("Number of Documentation Level 1 entries: " + str(df_doc_1["Documentation Level"].count()))
+    print("Number of Documentation Level 2 entries: " + str(df_doc_2["Documentation Level"].count()))
+    print("Number of Documentation Level 3 entries: " + str(df_doc_3["Documentation Level"].count()))
+
+
     comm_doc_2 = df_doc_2["Commits Six Months"]
     comm_doc_3 = df_doc_3["Commits Six Months"]
 
     lines_doc_2 = df_doc_2["Lines Six Months"]
     lines_doc_3 = df_doc_3["Lines Six Months"]
 
-    log_lines_doc_2 = df_doc_2["Log Lines Six Months"]
-    log_lines_doc_3 = df_doc_3["Log Lines Six Months"]
-
-    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
-
+    print("\n")
 
     print("mannwhitneyu for commits by Documentation level")
     s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
-    print(s)
-    print(p)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
 
     median_2 = comm_doc_2.median()
     median_3 = comm_doc_3.median()
 
-    print(median_2)
-    print(median_3)
+    print("Median commits doc level 2 " + str(median_2))
+    print("Median commits doc level 3 " + str(median_3))
 
-    #print(comm_doc_2)
-    #print(comm_doc_3)
+    print("\n")
 
     print("mannwhitneyu for lines by Documentation level")
     s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3)
-    print(s)
-    print(p)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
 
     median_2 = lines_doc_2.mean()
     median_3 = lines_doc_3.mean()
 
-    print(median_2)
-    print(median_3)
-
-    print("mannwhitneyu for log lines by Documentation level")
-    s, p = stats.mannwhitneyu(log_lines_doc_2, log_lines_doc_3)
-    print(s)
-    print(p)
-
-    median_2 = log_lines_doc_2.median()
-    median_3 = log_lines_doc_3.median()
-
-    print(median_2)
-    print(median_3)
+    print("Median lines doc level 2 " + str(median_2))
+    print("Median lines doc level 3 " + str(median_3))
 
 
+    print("Testing affect of Modularity level")
+    df_doc_1 = df[df["Modularity Level"] == 1]
+    df_doc_2 = df[df["Modularity Level"] == 2]
+    df_doc_3 = df[df["Modularity Level"] == 3]
+
+    print("Number of Modularity Level 1 entries: " + str(df_doc_1["Modularity Level"].count()))
+    print("Number of Modularity Level 2 entries: " + str(df_doc_2["Modularity Level"].count()))
+    print("Number of Modularity Level 3 entries: " + str(df_doc_3["Modularity Level"].count()))
 
 
+    comm_doc_2 = df_doc_2["Commits Six Months"]
+    comm_doc_3 = df_doc_3["Commits Six Months"]
 
+    lines_doc_2 = df_doc_2["Lines Six Months"]
+    lines_doc_3 = df_doc_3["Lines Six Months"]
+
+    print("\n")
+
+    print("mannwhitneyu for commits by Modularity level")
+    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
+
+    median_2 = comm_doc_2.median()
+    median_3 = comm_doc_3.median()
+
+    print("Median commits Modularity level 2 " + str(median_2))
+    print("Median commits Modularity level 3 " + str(median_3))
+
+    print("\n")
+
+    print("mannwhitneyu for lines by Modularity level")
+    s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
+    median_2 = lines_doc_2.mean()
+    median_3 = lines_doc_3.mean()
+
+    print("Median lines Modularity level 2 " + str(median_2))
+    print("Median lines Modularity level 3 " + str(median_3))
+
+
+    print("Testing affect of Install Guide")
+    df_doc_1 = df[df["Install"] == 0]
+    df_doc_2 = df[df["Install"] == 1]
+
+
+    print("Number of Install 0 entries: " + str(df_doc_1["Install"].count()))
+    print("Number of Install 1 entries: " + str(df_doc_2["Install"].count()))
+
+
+    comm_doc_1 = df_doc_1["Commits Six Months"]
+    comm_doc_2 = df_doc_2["Commits Six Months"]
+
+    lines_doc_1 = df_doc_1["Lines Six Months"]
+    lines_doc_2 = df_doc_2["Lines Six Months"]
+
+    print("\n")
+
+    print("mannwhitneyu for commits by Install")
+    s, p = stats.mannwhitneyu(comm_doc_1, comm_doc_2)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
+
+    median_1 = comm_doc_1.median()
+    median_2 = comm_doc_2.median()
+
+    print("Median commits Install 0 " + str(median_1))
+    print("Median commits Install 1 " + str(median_2))
+
+    print("\n")
+
+    print("mannwhitneyu for lines by Install")
+    s, p = stats.mannwhitneyu(lines_doc_1, lines_doc_2)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
+    median_1 = lines_doc_1.mean()
+    median_2 = lines_doc_2.mean()
+
+    print("Median lines Install 0 " + str(median_1))
+    print("Median lines Install 1 " + str(median_2))
+
+    print("Testing affect of Tutorial Guide")
+    df_doc_1 = df[df["Tutorial"] == 0]
+    df_doc_2 = df[df["Tutorial"] == 1]
+
+
+    print("Number of Tutorial 0 entries: " + str(df_doc_1["Tutorial"].count()))
+    print("Number of Tutorial 1 entries: " + str(df_doc_2["Tutorial"].count()))
+
+
+    comm_doc_1 = df_doc_1["Commits Six Months"]
+    comm_doc_2 = df_doc_2["Commits Six Months"]
+
+    lines_doc_1 = df_doc_1["Lines Six Months"]
+    lines_doc_2 = df_doc_2["Lines Six Months"]
+
+    print("\n")
+
+    print("mannwhitneyu for commits by Tutorial")
+    s, p = stats.mannwhitneyu(comm_doc_1, comm_doc_2)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
+
+    median_1 = comm_doc_1.median()
+    median_2 = comm_doc_2.median()
+
+    print("Median commits Tutorial 0 " + str(median_1))
+    print("Median commits Tutorial 1 " + str(median_2))
+
+    print("\n")
+
+    print("mannwhitneyu for lines by Tutorial")
+    s, p = stats.mannwhitneyu(lines_doc_1, lines_doc_2)
+    print("Statistic: "+ str(s))
+    print("p-value: " + str(p))
+
+    median_1 = lines_doc_1.mean()
+    median_2 = lines_doc_2.mean()
+
+    print("Median lines Tutorial 0 " + str(median_1))
+    print("Median lines Tutorial 1 " + str(median_2))
 
 if __name__ == "__main__":
     main()
