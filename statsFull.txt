@@ -1,0 +1,423 @@
+
+Testing if "Commits made in fist six months" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 5.305063801353215e-40
+Data is not from a normal distribution.
+
+
+Testing if "Lines contributed in first six months" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 6.062121843632935e-84
+Data is not from a normal distribution.
+
+
+Testing if "Inital LOC" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 3.731347134170055e-27
+Data is not from a normal distribution.
+
+
+Testing if "Inital Comment Lines" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 8.995516618187226e-40
+Data is not from a normal distribution.
+
+
+Testing if "Average CCN" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 2.782217689336013e-14
+Data is not from a normal distribution.
+
+
+Testing if "Number of functions" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 8.183377134472085e-34
+Data is not from a normal distribution.
+
+
+Testing if "Complex functions" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 1.9931927727449083e-31
+Data is not from a normal distribution.
+
+
+Testing if "Comment Ratio" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 2.2050966841766533e-05
+Data is not from a normal distribution.
+
+
+Testing if "Modularity level" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 4.426249110775131e-20
+Data is not from a normal distribution.
+
+
+Testing if "Documentation level" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 0.0001996949620896641
+Data is not from a normal distribution.
+
+
+Testing if "Install" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 1.1699733651611287e-11
+Data is not from a normal distribution.
+
+
+Testing if "Tutorial" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 2.867456274575467e-309
+Data is not from a normal distribution.
+
+
+Testing if "Log of Commits made in fist six months" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 0.0031065777153087403
+Data is not from a normal distribution.
+
+
+Testing if "Log of Lines contributed in six months" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Fail to reject null hypothesis.
+p-value: 0.824745815949053
+Data is from a normal distribution.
+
+
+Testing if "Log of Inital Lines" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 0.037470992176201624
+Data is not from a normal distribution.
+
+
+Testing if "Log of Inital Comments" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Fail to reject null hypothesis.
+p-value: 0.564640566330619
+Data is from a normal distribution.
+
+
+Testing if "Log of Initial Average CCN" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Fail to reject null hypothesis.
+p-value: 0.06698252646711815
+Data is from a normal distribution.
+
+
+Testing if "Log of Functions" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Fail to reject null hypothesis.
+p-value: 0.6325572280545811
+Data is from a normal distribution.
+
+
+Testing if "Log of Comment Ratio" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 1.577232114789643e-07
+Data is not from a normal distribution.
+
+
+Testing if "Function Complexity Ratio" is normaly distributed
+Null hypothesis is that it is from a normal distribution.
+
+Null hypothesis can be rejected.
+p-value: 7.944622845485641e-36
+Data is not from a normal distribution.
+
+
+Testing if "Commits in six months and Lines in six months" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.382433849201072e-35
+High correlation 0.729642527888906
+
+
+Testing if "Lines in six months and Commits in six months" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.3824338492011395e-35
+High correlation 0.7296425278889059
+
+
+Testing if "Log Commits in six months and Log lines in six months" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.382433849201072e-35
+High correlation 0.729642527888906
+
+
+Testing if "Commits in Six Months to Inital Lines" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 5.1636258146637664e-05
+Little if any correlation 0.27880919931875353
+
+
+Testing if "Commits in Six Months and Inital comments" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 3.5759743154295036e-06
+Low correlation 0.31723523172392915
+
+
+Testing if "Commits in Six Months and Comment Ratio" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Commits in Six Months and Initial Average CCN" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Commits in Six Months and Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.428030716271702e-05
+Little if any correlation 0.29023771120438
+
+
+Testing if "Commits in Six Months and Complex Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 1.3149657112997312e-08
+Low correlation 0.3840165323814266
+
+
+Testing if "Lines Six Months to Inital Lines" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 8.203084455416685e-09
+Low correlation 0.3890005557808409
+
+
+Testing if "Lines Six Months and Inital comments" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 6.399703384493002e-12
+Low correlation 0.45598009481170676
+
+
+Testing if "Lines Six Months and Comment Ratio" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Lines Six Months and Initial Average CCN" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Lines Six Months and Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.5617109104955167e-09
+Low correlation 0.4009499880857743
+
+
+Testing if "Lines Six Months and Complex Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 5.271225949182619e-12
+Low correlation 0.4576064930218356
+
+
+Testing if "Log Commits in six months and Log Inital lines" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 5.1636258146637664e-05
+Little if any correlation 0.27880919931875353
+
+
+Testing if "Log Commits in six months and Log Inital Comments" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 3.5759743154295036e-06
+Low correlation 0.31723523172392915
+
+
+Testing if "Log Commits in six months and Log Initial Average CCN" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Log Commits in six months and Log Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.428030716271702e-05
+Little if any correlation 0.29023771120438
+
+
+Testing if "Log Commits in six months and Log Complex Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Log Lines Six Months and Log Inital lines" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 8.203084455416685e-09
+Low correlation 0.3890005557808409
+
+
+Testing if "Log Lines Six Months and Log Inital Comments" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 6.399703384493002e-12
+Low correlation 0.45598009481170676
+
+
+Testing if "Log Lines Six Months and Log Initial Average CCN" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Log Lines Six Months and Log Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 2.5617109104955167e-09
+Low correlation 0.4009499880857743
+
+
+Testing if "Log Lines Six Months and Log Complex Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Commits in six months to Function Complixity Ratio" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 0.009510826404784154
+Little if any correlation 0.18072299888487892
+
+
+Testing if "Lines in six months to complexity ratio" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 0.0427942366846957
+Little if any correlation 0.1416339387416764
+
+Running Pearson Tests for normal data.
+
+Testing if "Log Lines six months and Log Inital Comments" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 3.9781398828938224e-08
+Low correlation 0.3719861841523804
+
+
+Testing if "Log Lines six months and Log IInitial Average CCN" are corrolated.
+Null hypothesis is that correlation is zero
+Cannot reject null hypothesis.
+
+
+Testing if "Log Lines six months and Log Functions" are corrolated.
+Null hypothesis is that correlation is zero
+Null hypothesis can be rejected.
+p-value: 1.359240405997198e-07
+Low correlation 0.35803281056925046
+
+Testing affect of Documentation level
+Number of Documentation Level 1 entries: 9
+Number of Documentation Level 2 entries: 88
+Number of Documentation Level 3 entries: 108
+
+
+mannwhitneyu for commits by Documentation level
+Statistic: 5864.5
+p-value: 0.004835488504871333
+Median commits doc level 2 21.5
+Median commits doc level 3 8.5
+
+
+mannwhitneyu for lines by Documentation level
+Statistic: 5953.0
+p-value: 0.002371677600788606
+Median lines doc level 2 20632.420454545456
+Median lines doc level 3 20503.49074074074
+Testing affect of Modularity level
+Number of Modularity Level 1 entries: 8
+Number of Modularity Level 2 entries: 34
+Number of Modularity Level 3 entries: 163
+
+
+mannwhitneyu for commits by Modularity level
+Statistic: 1130.0
+p-value: 5.626320291317994e-08
+Median commits Modularity level 2 4.0
+Median commits Modularity level 3 19.0
+
+
+mannwhitneyu for lines by Modularity level
+Statistic: 1340.5
+p-value: 2.2572930131124304e-06
+Median lines Modularity level 2 12740.79411764706
+Median lines Modularity level 3 21871.018404907976
+Testing affect of Install Guide
+Number of Install 0 entries: 40
+Number of Install 1 entries: 165
+
+
+mannwhitneyu for commits by Install
+Statistic: 3400.5
+p-value: 0.7661887455008374
+Median commits Install 0 15.5
+Median commits Install 1 11.0
+
+
+mannwhitneyu for lines by Install
+Statistic: 3167.5
+p-value: 0.6949427767406211
+Median lines Install 0 10947.725
+Median lines Install 1 23406.89696969697
+Testing affect of Tutorial Guide
+Number of Tutorial 0 entries: 78
+Number of Tutorial 1 entries: 127
+
+
+mannwhitneyu for commits by Tutorial
+Statistic: 5260.5
+p-value: 0.4561752009304737
+Median commits Tutorial 0 13.0
+Median commits Tutorial 1 11.0
+
+
+mannwhitneyu for lines by Tutorial
+Statistic: 5674.5
+p-value: 0.08039306785101348
+Median lines Tutorial 0 20437.02564102564
+Median lines Tutorial 1 21306.76377952756
