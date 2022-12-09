@@ -440,9 +440,9 @@ def main():
     df["Function Complexity Ratio"] = df["Complex Functions"] / df["Functions"]
     #df["Log Function Complexity Ratio"] = np.log(df["Function Complexity Ratio"])
 
-    #run_normality_tests(df, alpha)
+    run_normality_tests(df, alpha)
 
-    #run_corrolation_tests(df, alpha)
+    run_corrolation_tests(df, alpha)
 
     print("Testing affect of Documentation level")
     df_doc_1 = df[df["Documentation Level"] == 1]
@@ -463,7 +463,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for commits by Documentation level")
-    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
+    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3, alternative='greater')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -477,7 +477,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for lines by Documentation level")
-    s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3)
+    s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3, alternative='greater')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -507,7 +507,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for commits by Modularity level")
-    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3)
+    s, p = stats.mannwhitneyu(comm_doc_2, comm_doc_3, alternative='less')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -521,7 +521,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for lines by Modularity level")
-    s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3)
+    s, p = stats.mannwhitneyu(lines_doc_2, lines_doc_3, alternative='less')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -550,7 +550,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for commits by Install")
-    s, p = stats.mannwhitneyu(comm_doc_1, comm_doc_2)
+    s, p = stats.mannwhitneyu(comm_doc_1, comm_doc_2, alternative='greater')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -564,7 +564,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for lines by Install")
-    s, p = stats.mannwhitneyu(lines_doc_1, lines_doc_2)
+    s, p = stats.mannwhitneyu(lines_doc_1, lines_doc_2, alternative='less')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -592,7 +592,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for commits by Tutorial")
-    s, p = stats.mannwhitneyu(comm_doc_1, comm_doc_2)
+    s, p = stats.mannwhitneyu(comm_doc_1, comm_doc_2, alternative='greater')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 
@@ -606,7 +606,7 @@ def main():
     print("\n")
 
     print("mannwhitneyu for lines by Tutorial")
-    s, p = stats.mannwhitneyu(lines_doc_1, lines_doc_2)
+    s, p = stats.mannwhitneyu(lines_doc_1, lines_doc_2, alternative='less')
     print("Statistic: "+ str(s))
     print("p-value: " + str(p))
 

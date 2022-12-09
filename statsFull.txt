@@ -359,14 +359,14 @@ Number of Documentation Level 3 entries: 108
 
 mannwhitneyu for commits by Documentation level
 Statistic: 5864.5
-p-value: 0.004835488504871333
+p-value: 0.0024177442524356664
 Median commits doc level 2 21.5
 Median commits doc level 3 8.5
 
 
 mannwhitneyu for lines by Documentation level
 Statistic: 5953.0
-p-value: 0.002371677600788606
+p-value: 0.001185838800394303
 Median lines doc level 2 20632.420454545456
 Median lines doc level 3 20503.49074074074
 Testing affect of Modularity level
@@ -377,14 +377,14 @@ Number of Modularity Level 3 entries: 163
 
 mannwhitneyu for commits by Modularity level
 Statistic: 1130.0
-p-value: 5.626320291317994e-08
+p-value: 2.813160145658997e-08
 Median commits Modularity level 2 4.0
 Median commits Modularity level 3 19.0
 
 
 mannwhitneyu for lines by Modularity level
 Statistic: 1340.5
-p-value: 2.2572930131124304e-06
+p-value: 1.1286465065562152e-06
 Median lines Modularity level 2 12740.79411764706
 Median lines Modularity level 3 21871.018404907976
 Testing affect of Install Guide
@@ -394,14 +394,14 @@ Number of Install 1 entries: 165
 
 mannwhitneyu for commits by Install
 Statistic: 3400.5
-p-value: 0.7661887455008374
+p-value: 0.3830943727504187
 Median commits Install 0 15.5
 Median commits Install 1 11.0
 
 
 mannwhitneyu for lines by Install
 Statistic: 3167.5
-p-value: 0.6949427767406211
+p-value: 0.34747138837031055
 Median lines Install 0 10947.725
 Median lines Install 1 23406.89696969697
 Testing affect of Tutorial Guide
@@ -411,13 +411,13 @@ Number of Tutorial 1 entries: 127
 
 mannwhitneyu for commits by Tutorial
 Statistic: 5260.5
-p-value: 0.4561752009304737
+p-value: 0.22808760046523685
 Median commits Tutorial 0 13.0
 Median commits Tutorial 1 11.0
 
 
 mannwhitneyu for lines by Tutorial
 Statistic: 5674.5
-p-value: 0.08039306785101348
+p-value: 0.9600128251491131
 Median lines Tutorial 0 20437.02564102564
 Median lines Tutorial 1 21306.76377952756
